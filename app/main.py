@@ -6,11 +6,15 @@ from core.exception import register_exception_handlers
 
 app = FastAPI(title='Car Price Prediction API')
 
+#link middleware
 app.add_middleware(LoggingMiddleware)
 
+#link endpoints
 app.include_router(routes_auth.router, tags=['Auth'])
 app.include_router(routes_predict.router, tags=['Prediction'])
 
+#monitoring using Prometheus
 Instrumentator().instrument(app).expose(app)
 
+#add exception handlers
 register_exception_handlers(app)

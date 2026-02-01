@@ -1,5 +1,6 @@
 from datetime import datetime, timezone, timedelta
-from jose import JWTError, jwe
+from jose import JWTError
+from jose import jwe
 from app.core.config import settings
 
 
